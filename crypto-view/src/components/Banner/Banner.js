@@ -1,20 +1,30 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import CachedIcon from '@mui/icons-material/Cached';
 
 import './Banner.css';
 
 const Banner = () => {
     return (
         <div>
-            <div className='banner-line'>
-                <h1 className='text'>
-                    Javascript challenge
-                </h1>
-                <Button variant='outline-primary' className='button'>
-                    Reload
+            <Stack
+                spacing={2}
+                direction="row"
+                className='banner-line'
+            >
+                <>
+                    <h1>Javascript challenge</h1>
+                </>
+                <Button
+                    variant='outlined'
+                    className='button'
+                    startIcon={<CachedIcon />}
+                >
+                    Load more
                 </Button>
-            </div>
-            <hr />
+            </Stack>
+            <hr></hr>
         </div>
     )
 }

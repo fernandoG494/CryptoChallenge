@@ -1,15 +1,10 @@
 .banner-line {
     display: flex;
-    align-content: center;
     justify-content: center;
-}
-
-.text {
-    margin-top: 2%;
+    margin-top: 11px;
 }
 
 .button {
-    margin-top: 2.5%;
-    margin-left: 2%;
-    max-height: 27px;
+    top: 10px;
+    max-height: 22px;
 }
