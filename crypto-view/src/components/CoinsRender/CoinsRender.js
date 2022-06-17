@@ -8,14 +8,13 @@ const CoinsRender = ({coinsNum}) => {
     const API = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&sparkline=false';
     const [coins, setCoins] = useState([]);
 
-    const fetchCoins = async () => {
-        fetch(`${API}&per_page=${coinsNum}&page=${1}`)
-            .then(res => res.json())
-            .then(data => setCoins(data))
-            .catch(err => console.log(err));
-    }
-
     useMemo(() => {
+        const fetchCoins = async () => {
+            fetch(`${API}&per_page=${coinsNum}&page=${1}`)
+                .then(res => res.json())
+                .then(data => setCoins(data))
+                .catch(err => console.log(err));
+        }
         fetchCoins();
     }, [coinsNum]);
     
