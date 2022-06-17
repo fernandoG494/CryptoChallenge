@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Banner from "./components/Banner/Banner";
-import Coins from "./components/CoinsRender/CoinsRender";
+import CoinsRender from "./components/CoinsRender/CoinsRender";
 import Search from "./components/Search/Search";
 
 function App() {
+    let [numberOfCoins, setNumberOfCoins] = useState(5);
+
     return (
         <div className="App">
-            <Banner />
+            <Banner
+                numberOfCoins={numberOfCoins}
+                setNumberOfCoins={setNumberOfCoins}    
+            />
             <Search />
-            <Coins />
+            <CoinsRender coinsNum={numberOfCoins}/>
         </div>
     );
 }

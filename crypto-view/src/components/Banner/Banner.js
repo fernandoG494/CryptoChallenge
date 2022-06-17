@@ -5,7 +5,14 @@ import CachedIcon from '@mui/icons-material/Cached';
 
 import './Banner.css';
 
-const Banner = () => {
+const Banner = ({numberOfCoins, setNumberOfCoins}) => {
+
+    function clickHandler(){
+        numberOfCoins < 30 ? 
+            setNumberOfCoins(numberOfCoins + 5) : 
+            setNumberOfCoins(5);
+    }
+
     return (
         <div>
             <Stack
@@ -20,8 +27,9 @@ const Banner = () => {
                     variant='outlined'
                     className='button'
                     startIcon={<CachedIcon />}
+                    onClick={clickHandler}
                 >
-                    Load more
+                    {numberOfCoins < 30 ? 'Load more' : 'Restore default'}
                 </Button>
             </Stack>
             <hr></hr>
