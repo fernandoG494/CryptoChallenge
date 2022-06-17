@@ -10,6 +10,7 @@ const Coins = () => {
     const [coins, setCoins] = useState([]);
 
     const fetchCoins = async () => {
+        // TODO: Hard coded for now
         fetch(`${API}&per_page=${10}&page=${1}`)
             .then(res => res.json())
             .then(data => setCoins(data))
