@@ -1,16 +1,16 @@
 import React, { useMemo, useState } from 'react'
 import Box from '@mui/material/Box';
 import Coin from '../Coin/Coin';
+import Grid from '@mui/material/Grid';
 
 import './CoinsRender.css';
 
 const Coins = () => {
     const API = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&sparkline=false';
-    
     const [coins, setCoins] = useState([]);
 
     const fetchCoins = async () => {
-        fetch(`${API}&per_page=${5}&page=${1}`)
+        fetch(`${API}&per_page=${10}&page=${1}`)
             .then(res => res.json())
             .then(data => setCoins(data))
             .catch(err => console.log(err));
@@ -26,21 +26,25 @@ const Coins = () => {
         <div className="top-ajust">
             <Box
                 sx={{
-                    flexGrow:1,
+                    flexGrow: 1,
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}
             >
-                {coins.map((coin) => {
-                    return (
-                        <Coin
-                            coin={coin}
-                            key={coin.id}
-                            className="left-ajust"
-                        />
-                    )
-                })}
+                <Grid container spacing={1} className='coins-container' >
+                    {coins.map((coin) => {
+                        return (
+                            <div style={{paddingLeft: '10px', paddingTop: '10px'}}>
+                                <Coin
+                                    coin={coin}
+                                    key={coin.id}
+                                    className="left-ajust"
+                                />
+                            </div>
+                        )
+                    })}
+                </Grid>
             </Box>
         </div>
     )
